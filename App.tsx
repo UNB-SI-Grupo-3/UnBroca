@@ -1,41 +1,29 @@
+import { useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { StrictMode } from "react";
-import { View, StyleSheet } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-import { ColorPalette } from "./assets/Globals";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
 import { MainShopperPage } from "./Components/Pages";
 import { DemoPage } from "./Components/Pages/DemoPage/DemoPage";
 
+import { ColorPalette } from "./assets/Globals";
+
+const Stack = createNativeStackNavigator();
+
 export default function App() {
+  const [dark, setDark] = useState(false);
+
   return (
-    <StrictMode>
-    <View style={styles.app}>
-      <View style={[styles.safeSpace, styles.androidSafeSpace]}>
-        <DemoPage />
-        <StatusBar />
-      </View>
-    </View>
-    </StrictMode>
+    <SafeAreaView style={{ backgroundColor: ColorPalette.Gray1, flex: 1 }}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="main">
+          <Stack.Screen name="main" component={MainShopperPage} />
+          <Stack.Screen name="demo" component={DemoPage} />
+        </Stack.Navigator>
+      </NavigationContainer>
+      <StatusBar style="light" backgroundColor={ColorPalette.Primary} />
+    </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  app: {
-    backgroundColor: ColorPalette.Primary,
-    flex:1,
-  },
-
-  safeSpace: {
-    backgroundColor: ColorPalette.Gray1,
-    flex: 1,
-    overflow: "hidden",
-  },
-
-  androidSafeSpace: {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    top:40,
-    bottom: 0,
-  }
-});
