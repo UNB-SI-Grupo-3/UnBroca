@@ -13,8 +13,6 @@ import { ColorPalette } from "./assets/Globals";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-  const [dark, setDark] = useState(false);
-
   return (
     <SafeAreaView style={{ backgroundColor: ColorPalette.Gray1, flex: 1 }}>
       <NavigationContainer>
