@@ -1,20 +1,26 @@
 import { useState } from "react";
-import { View, Image, StyleSheet, TextInput, StyleProp, ViewStyle } from "react-native";
+import {
+  Image,
+  StyleProp,
+  StyleSheet,
+  TextInput,
+  TextInputProps,
+  View,
+  ViewStyle,
+} from "react-native";
 
 interface Props {
+  inputProps?: TextInputProps;
   style?: StyleProp<ViewStyle>;
-};
+}
 
-export function SearchBox({style}: Props) {
-  const [text, setText] = useState('');
+export function SearchBox({ style, inputProps }: Props) {
+  const [text, setText] = useState("");
+
   return (
     <View style={[styles.searchBar, style]}>
       <Image source={require("../../../assets/lupa.png")} />
-      <TextInput 
-        placeholder="Pesquisar"
-        onChangeText={newText => setText(newText)}
-        defaultValue={text}
-      />
+      <TextInput placeholder="Pesquisar" {...inputProps} />
     </View>
   );
 }

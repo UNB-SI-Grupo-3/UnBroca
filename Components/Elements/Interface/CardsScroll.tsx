@@ -1,9 +1,10 @@
-import { FlatList, Text, StyleSheet, View } from "react-native";
+import { FlatList, Text, StyleSheet, StyleProp, ViewStyle } from "react-native";
 import { Card, CardProps } from "./Card";
 import { ColorPalette } from "../../../assets/Globals";
 
 interface Props {
   cards?: CardProps[];
+  style?: StyleProp<ViewStyle>;
 }
 
 const renderer = (item: CardProps, index: number) => {
@@ -13,29 +14,26 @@ const renderer = (item: CardProps, index: number) => {
         distance = {item.distance}
         price    = {item.price}
         imageSrc = {item.imageSrc}
-        style    = {{ flex:1/2, margin: 5}}
+        style    = {{ 
+          flex:1/2, 
+          marginRight: index % 2 ? 10 : 15,
+          marginLeft:  index % 2 ? 15 : 10
+        }}
       />
   );
 };
 
-export function CardsScroll({ cards }: Props) {
+export function CardsScroll({ cards, style }: Props) {
   return (
     <FlatList
       data={cards}
-      style={styles.productView}
+      style={[styles.productView, style]}
       numColumns={2}
       renderItem={({ item, index }) => {
         return renderer(item, index);
       }}
       ListEmptyComponent={
-        <Text
-          style={{
-            fontWeight: "bold",
-            fontSize: 18,
-            textAlign: "center",
-            color: ColorPalette.Gray2,
-          }}
-        >
+        <Text style={styles.emptyText}>
           Sem items para mostrar!
         </Text>
       }
@@ -45,7 +43,13 @@ export function CardsScroll({ cards }: Props) {
 
 const styles = StyleSheet.create({
   productView: {
-    flex: 1,
     alignContent: "space-around",
+  },
+
+  emptyText: {
+    fontWeight: "bold",
+    fontSize: 18,
+    textAlign: "center",
+    color: ColorPalette.Gray2,
   },
 });
