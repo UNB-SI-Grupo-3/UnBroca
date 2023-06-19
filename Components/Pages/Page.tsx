@@ -1,50 +1,49 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
-import React, { ReactNode } from 'react'
+import React, { ReactNode } from "react";
+import { Image, StyleSheet, Text, View } from "react-native";
 
-interface PageProps{
+interface PageProps {
   title: string;
   chevronText?: string;
   children: ReactNode;
 }
 
-export function Page({chevronText: helpString, title, children}:PageProps) {
+export function Page({ chevronText: helpString, title, children }: PageProps) {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <View style={{flexDirection:"row"}}>
+        <View style={{ flexDirection: "row" }}>
           <Image
             source={require("../../assets/chevron.png")}
-            style={styles.chevron} />
+            style={styles.chevron}
+          />
           <Text>{helpString ? helpString : "Voltar"}</Text>
         </View>
         <Text>{title}</Text>
       </View>
-      <View style={styles.content}>
-        {children}
-      </View>
+      <View style={styles.content}>{children}</View>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
-  container:{
-    flex:1,
+  container: {
+    flex: 1,
   },
 
-  header:{
+  header: {
     flexDirection: "row",
     height: 50,
     alignItems: "center",
     justifyContent: "space-around",
   },
 
-  content:{
-    flex:1,
+  content: {
+    flex: 1,
   },
 
-  chevron:{
+  chevron: {
     width: 20,
     height: 20,
-    resizeMode: 'contain',
+    resizeMode: "contain",
   },
-})
+});
