@@ -1,3 +1,3 @@
 export * from "./MainShopperPage/MainShopperPage"
 export * from "./DemoPage/DemoPage"
-export * from "./Page"
+export * from "./CustomNavigationHeader"
