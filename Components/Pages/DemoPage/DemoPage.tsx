@@ -1,17 +1,8 @@
-import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { useState } from "react";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { BigButton } from "../../Elements/Interface";
 import { StyledTextInput } from "../../Elements/Interface/Forms/";
-import { BigButton, CardsScroll } from "../../Elements/Interface";
 import { Header } from "../../Elements/TextStyles";
-
-const dummyCards = Array.from({ length: 30 }).map((_, i) => {
-  return {
-    name: `This is the title! ${i + 1}`,
-    distance: `${(i + 1) * 100}m`,
-    price: `${((i + 1) % 10) * 10}`,
-    imageSrc: `https://picsum.photos/1440/2842?random=${i}`,
-  };
-});
 
 export function DemoPage() {
   const [text, setText] = useState("Click me!");
@@ -19,7 +10,10 @@ export function DemoPage() {
   return (
     <ScrollView style={{ flex: 0.5 }}>
       <Header>Welcome to the DEMO PAGE</Header>
-      <Text>Here we insert and show all basic elements that we might use in the project</Text>
+      <Text>
+        Here we insert and show all basic elements that we might use in the
+        project
+      </Text>
       <Text>---</Text>
       <Text>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam quaerat

@@ -33,8 +33,16 @@ export default function App() {
             },
           }}
         >
-          <Stack.Screen name="main" component={MainShopperPage} options={{headerShown:false}}/>
-          <Stack.Screen name="demo" component={DemoPage} options={{headerTitle:"DEMO PAGE!"}}/>
+          <Stack.Screen
+            name="main"
+            component={MainShopperPage}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="demo"
+            component={DemoPage}
+            options={{ headerTitle: "DEMO PAGE!" }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
       <StatusBar style="light" backgroundColor={ColorPalette.Primary} />

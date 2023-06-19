@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { View, Text, Image, ScrollView, StyleSheet, Pressable } from "react-native";
-import { SearchBox, CardsScroll, BigButton } from "../../Elements/Interface";
+import { Pressable, StyleSheet, View } from "react-native";
+import { BigButton, CardsScroll, SearchBox } from "../../Elements/Interface";
 import { Header } from "../../Elements/TextStyles";
 
 const dummyCards = Array.from({ length: 30 }).map((_, i) => {
@@ -20,7 +20,7 @@ type product = {
   kind: "marmita" | "bebida";
 };
 
-export function MainShopperPage({navigation}: MainShopperPageProps) {
+export function MainShopperPage({ navigation }: MainShopperPageProps) {
   const [filter, setFilter] = useState("");
   const [productType, setProductType] = useState<product>({ kind: "marmita" });
 
@@ -32,7 +32,6 @@ export function MainShopperPage({navigation}: MainShopperPageProps) {
 
   return (
     <View style={styles.container}>
-
       <Pressable onPress={() => navigation.navigate("demo")}>
         <Header>Escolha sua próxima broca</Header>
       </Pressable>
@@ -53,7 +52,6 @@ export function MainShopperPage({navigation}: MainShopperPageProps) {
         />
       </View>
       <CardsScroll cards={dummyCards} />
-
     </View>
   );
 }
