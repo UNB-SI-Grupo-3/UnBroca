@@ -16,41 +16,15 @@ interface MainShopperPageProps {
   navigation: any;
 }
 
-type product = {
-  kind: "marmita" | "bebida";
-};
-
 export function MainShopperPage({ navigation }: MainShopperPageProps) {
   const [filter, setFilter] = useState("");
-  const [productType, setProductType] = useState<product>({ kind: "marmita" });
-
-  const swapProductType = () => {
-    productType.kind === "marmita"
-      ? setProductType({ kind: "bebida" })
-      : setProductType({ kind: "marmita" });
-  };
 
   return (
     <View style={styles.container}>
       <Pressable onPress={() => navigation.navigate("demo")}>
         <Header>Escolha sua próxima broca</Header>
       </Pressable>
-
       <SearchBox inputProps={{ onChangeText: setFilter }} />
-      <View style={{ flexDirection: "row" }}>
-        <BigButton
-          style={{ flex: 1 }}
-          text="marmitas"
-          disabled={productType.kind === "marmita" ? true : false}
-          onPress={swapProductType}
-        />
-        <BigButton
-          style={{ flex: 1 }}
-          text="bebidas"
-          disabled={productType.kind === "bebida" ? true : false}
-          onPress={swapProductType}
-        />
-      </View>
       <CardsScroll cards={dummyCards} />
     </View>
   );
