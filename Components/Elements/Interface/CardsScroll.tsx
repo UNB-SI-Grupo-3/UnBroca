@@ -8,6 +8,7 @@ interface Props {
 }
 
 const renderer = (item: CardProps, index: number) => {
+  // TODO: Enable navigation by using Card "onPress" Prop
   return (
       <Card
         name     = {item.name}
