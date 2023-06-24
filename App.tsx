@@ -47,7 +47,7 @@ export default function App() {
           <Stack.Screen
             name="productPage"
             component={ProductPage}
-            options={{ headerTitle: "Product" }}
+            options={{ headerTitle: "Página da marmita" }}
           />
         </Stack.Navigator>
       </NavigationContainer>
