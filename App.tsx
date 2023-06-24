@@ -7,6 +7,7 @@ import {
   CustomNavigationHeader,
   DemoPage,
   MainShopperPage,
+  ProductPage,
 } from "./Components/Pages";
 
 import { ColorPalette } from "./assets/Globals";
@@ -42,6 +43,11 @@ export default function App() {
             name="demo"
             component={DemoPage}
             options={{ headerTitle: "DEMO PAGE!" }}
+          />
+          <Stack.Screen
+            name="productPage"
+            component={ProductPage}
+            options={{ headerTitle: "Product" }}
           />
         </Stack.Navigator>
       </NavigationContainer>

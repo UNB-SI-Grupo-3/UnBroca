@@ -3,20 +3,19 @@ import { Pressable, StyleSheet, View } from "react-native";
 import { BigButton, CardsScroll, SearchBox } from "../../Elements/Interface";
 import { Header } from "../../Elements/TextStyles";
 
-const dummyCards = Array.from({ length: 30 }).map((_, i) => {
-  return {
-    name: `This is the title! ${i + 1}`,
-    distance: `${(i + 1) * 100}m`,
-    price: `${((i + 1) % 10) * 10}`,
-    imageSrc: `https://picsum.photos/1440/2842?random=${i}`,
-  };
-});
-
 interface MainShopperPageProps {
   navigation: any;
 }
 
 export function MainShopperPage({ navigation }: MainShopperPageProps) {
+  // TODO: Get id list of available products using a request and remove
+  // the block of code below.
+  const dummyCards = Array.from({ length: 30 }).map((_, i) => {
+    return {
+      productID: `${i}`,
+    };
+  });
+  
   const [filter, setFilter] = useState("");
 
   return (
@@ -25,7 +24,10 @@ export function MainShopperPage({ navigation }: MainShopperPageProps) {
         <Header>Escolha sua próxima broca</Header>
       </Pressable>
       <SearchBox inputProps={{ onChangeText: setFilter }} />
-      <CardsScroll cards={dummyCards} />
+      <CardsScroll
+        navigation={navigation}
+        productsIDlist={dummyCards}
+      />
     </View>
   );
 }

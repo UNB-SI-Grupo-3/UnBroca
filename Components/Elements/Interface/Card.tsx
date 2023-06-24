@@ -1,30 +1,45 @@
-import React from "react";
-import { View, Image, Text, StyleSheet, Pressable, StyleProp, ViewStyle } from "react-native";
+import {
+  Image,
+  Pressable,
+  StyleProp,
+  StyleSheet,
+  Text,
+  View,
+  ViewStyle,
+} from "react-native";
 import { ColorPalette } from "../../../assets/Globals";
 
 export interface CardProps {
-  name: string;
-  distance: string;
-  price: string;
-  imageSrc: string;
-  onPress?: () => void;
-  style?: StyleProp<ViewStyle>
+  productID: string;
+  navigation: any;
+  style?: StyleProp<ViewStyle>;
 }
 
-export function Card({ name, distance, price, imageSrc, onPress, style}: CardProps) {
+export function Card({ productID, navigation, style }: CardProps) {
+  // TODO: get the values below using a request with productID as a parameter.
+  const imageSrc = "https://picsum.photos/300/";
+  const name = "Test";
+  const price = "99,99";
+  const distance = "80 m";
+
   return (
-    <Pressable style={[styles.card, style]} onPress={onPress}>
+    <Pressable
+      style={[styles.card, style]}
+      onPress={() => {
+        navigation.navigate("productPage", { productId: { productID } });
+      }}
+    >
       <View style={styles.whiteBoard}></View>
-      
+
       <Image source={{ uri: imageSrc }} style={styles.cardImage} />
-      
-      <Text style={[{flex: 1.5, overflow:"hidden"}, styles.text]}>
+
+      <Text style={[{ flex: 1.5, overflow: "hidden" }, styles.text]}>
         {name}
       </Text>
-      <Text style={[{color: ColorPalette.Gray2, flex:1}, styles.text]}>
+      <Text style={[{ color: ColorPalette.Gray2, flex: 1 }, styles.text]}>
         {"A " + distance}
       </Text>
-      <Text style={[{color: ColorPalette.Primary, flex:1}, styles.text]}>
+      <Text style={[{ color: ColorPalette.Primary, flex: 1 }, styles.text]}>
         {"R$ " + price}
       </Text>
     </Pressable>
@@ -37,12 +52,12 @@ const styles = StyleSheet.create({
     fontWeight: "normal",
     textAlign: "center",
   },
-  
+
   card: {
     width: 170,
     height: 290,
     padding: 10,
-    
+
     flexDirection: "column",
     justifyContent: "space-evenly",
     alignItems: "center",

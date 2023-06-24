@@ -3,19 +3,17 @@ import { Card, CardProps } from "./Card";
 import { ColorPalette } from "../../../assets/Globals";
 
 interface Props {
-  cards?: CardProps[];
+  navigation: any;
+  productsIDlist?: {productID: string}[];
   style?: StyleProp<ViewStyle>;
 }
 
-const renderer = (item: CardProps, index: number) => {
-  // TODO: Enable navigation by using Card "onPress" Prop
+const renderer = (item: {productID: string}, index: number, navigation: any) => {
   return (
       <Card
-        name     = {item.name}
-        distance = {item.distance}
-        price    = {item.price}
-        imageSrc = {item.imageSrc}
-        style    = {{ 
+        productID  = {item.productID}
+        navigation = {navigation}
+        style = {{ 
           flex:1/2, 
           marginRight: index % 2 ? 10 : 15,
           marginLeft:  index % 2 ? 15 : 10
@@ -24,14 +22,14 @@ const renderer = (item: CardProps, index: number) => {
   );
 };
 
-export function CardsScroll({ cards, style }: Props) {
+export function CardsScroll({ navigation, productsIDlist, style }: Props) {
   return (
     <FlatList
-      data={cards}
+      data={productsIDlist}
       style={[styles.productView, style]}
       numColumns={2}
       renderItem={({ item, index }) => {
-        return renderer(item, index);
+        return renderer(item, index, navigation);
       }}
       ListEmptyComponent={
         <Text style={styles.emptyText}>
