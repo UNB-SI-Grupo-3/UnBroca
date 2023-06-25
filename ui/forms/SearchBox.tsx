@@ -16,7 +16,7 @@ interface Props {
 export function SearchBox({ style, inputProps }: Props) {
   return (
     <View style={[styles.searchBar, style]}>
-      <Image source={require("../../../assets/lupa.png")} />
+      <Image source={require("../../assets/lupa.png")} />
       <TextInput placeholder="Pesquisar" {...inputProps} />
     </View>
   );

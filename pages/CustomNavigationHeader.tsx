@@ -22,7 +22,7 @@ export function CustomNavigationHeader({ title, onPress, back }: props) {
           onPress={onPress}
         >
           <Image
-            source={require("../../assets/chevron.png")}
+            source={require("../assets/chevron.png")}
             style={styles.chevron}
           />
           <Text>{back.title}</Text>
