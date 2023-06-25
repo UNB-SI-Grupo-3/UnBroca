@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Image,
   StyleProp,
@@ -15,8 +14,6 @@ interface Props {
 }
 
 export function SearchBox({ style, inputProps }: Props) {
-  const [text, setText] = useState("");
-
   return (
     <View style={[styles.searchBar, style]}>
       <Image source={require("../../../assets/lupa.png")} />

@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, Pressable, StyleProp, ViewStyle } from "react-native";
 import { GestureResponderEvent } from "react-native/types";
-import { ColorPalette } from "../../../assets/Globals";
+import { ColorPalette } from "../../constants";
 
 export interface BigButtonProps {
   text: String;

@@ -7,7 +7,7 @@ import {
   View,
   ViewStyle,
 } from "react-native";
-import { ColorPalette } from "../../../assets/Globals";
+import { ColorPalette } from "../../constants";
 
 export interface CardProps {
   productID: string;

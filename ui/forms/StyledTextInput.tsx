@@ -24,7 +24,11 @@ export function StyledTextInput({
   return (
     <View style={[styles.container, style]}>
       <Text>{title}</Text>
-      <TextInput style={styles.textInput} placeholder={placeholder} {...inputProps} />
+      <TextInput
+        style={styles.textInput}
+        placeholder={placeholder}
+        {...inputProps}
+      />
       <View style={styles.hr} />
     </View>
   );
@@ -35,8 +39,7 @@ const styles = StyleSheet.create({
     margin: 5,
   },
 
-  textInput: {
-  },
+  textInput: {},
 
   hr: {
     borderBottomColor: "black",

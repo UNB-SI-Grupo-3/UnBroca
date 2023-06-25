@@ -1,26 +1,25 @@
-import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
-import React from "react";
-import { BigButton, CardsScroll } from "../../Elements/Interface";
-import { Header, Price } from "../../Elements/TextStyles";
+import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Header, Price } from "../../ui";
 
 interface ProductPageProps {
-  route: any,
-  navigation: any,
+  route: any;
+  navigation: any;
 }
 
-export function ProductPage({route, navigation}: ProductPageProps) {
+export function ProductPage({ route, navigation }: ProductPageProps) {
   const productId = route.params.productId;
   // Todo: get values below using one or multiple requisitions with productID as a
   // parameter.
-  const imageSrc = "https://picsum.photos/id/2/300/"
-  const name = "Test"
-  const price = "99,99"
-  const details = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum alias pariatur sunt ex nihil veritatis, consequuntur at esse provident laborum. Sapiente ea ipsum velit obcaecati ad? Velit earum magnam quas?"
-  const sellerName = "Eduardo Silva"
-  const stars = "5/5"
-  const telephone = "61 9999-9999"
-  const address = "UNB"
-  const distance = "80 m"
+  const imageSrc = "https://picsum.photos/id/2/300/";
+  const name = "Test";
+  const price = "99,99";
+  const details =
+    "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum alias pariatur sunt ex nihil veritatis, consequuntur at esse provident laborum. Sapiente ea ipsum velit obcaecati ad? Velit earum magnam quas?";
+  const sellerName = "Eduardo Silva";
+  const stars = "5/5";
+  const telephone = "61 9999-9999";
+  const address = "UNB";
+  const distance = "80 m";
 
   return (
     <View>
@@ -54,7 +53,7 @@ export function ProductPage({route, navigation}: ProductPageProps) {
         </View>
         <View style={styles.moreItems}>
           <View style={styles.hr} />
-          <Text style={{textAlign:"right"}}>Mais items do vendedor</Text>
+          <Text style={{ textAlign: "right" }}>Mais items do vendedor</Text>
           {/* TODO: Inserir CardsScroll aqui. */}
         </View>
       </ScrollView>
@@ -103,6 +102,6 @@ const styles = StyleSheet.create({
   },
 
   moreItems: {
-    paddingHorizontal:20,
+    paddingHorizontal: 20,
   },
 });

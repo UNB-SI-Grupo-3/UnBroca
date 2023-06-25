@@ -1,6 +1,6 @@
 import { FlatList, Text, StyleSheet, StyleProp, ViewStyle } from "react-native";
-import { Card, CardProps } from "./Card";
-import { ColorPalette } from "../../../assets/Globals";
+import { Card } from "./Card";
+import { ColorPalette } from "../../constants";
 
 interface Props {
   navigation: any;

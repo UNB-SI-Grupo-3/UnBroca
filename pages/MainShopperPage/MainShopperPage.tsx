@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Pressable, StyleSheet, View } from "react-native";
-import { BigButton, CardsScroll, SearchBox } from "../../Elements/Interface";
-import { Header } from "../../Elements/TextStyles";
+import { CardsScroll, Header, SearchBox } from "../../ui/";
 
 interface MainShopperPageProps {
   navigation: any;
@@ -15,7 +14,7 @@ export function MainShopperPage({ navigation }: MainShopperPageProps) {
       productID: `${i}`,
     };
   });
-  
+
   const [filter, setFilter] = useState("");
 
   return (
@@ -24,10 +23,7 @@ export function MainShopperPage({ navigation }: MainShopperPageProps) {
         <Header>Escolha sua próxima broca</Header>
       </Pressable>
       <SearchBox inputProps={{ onChangeText: setFilter }} />
-      <CardsScroll
-        navigation={navigation}
-        productsIDlist={dummyCards}
-      />
+      <CardsScroll navigation={navigation} productsIDlist={dummyCards} />
     </View>
   );
 }

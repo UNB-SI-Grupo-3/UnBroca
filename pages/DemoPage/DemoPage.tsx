@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
-import { BigButton } from "../../Elements/Interface";
-import { StyledTextInput } from "../../Elements/Interface/Forms/";
-import { Header } from "../../Elements/TextStyles";
+import { BigButton, Header, StyledTextInput } from "../../ui";
 
 export function DemoPage() {
   const [text, setText] = useState("Click me!");

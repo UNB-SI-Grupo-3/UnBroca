@@ -8,9 +8,9 @@ import {
   DemoPage,
   MainShopperPage,
   ProductPage,
-} from "./Components/Pages";
+} from "./pages";
 
-import { ColorPalette } from "./assets/Globals";
+import { ColorPalette } from "./constants";
 
 const Stack = createNativeStackNavigator();
 
