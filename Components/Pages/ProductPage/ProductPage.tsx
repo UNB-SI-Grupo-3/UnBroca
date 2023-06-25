@@ -12,7 +12,7 @@ export function ProductPage({route, navigation}: ProductPageProps) {
   const productId = route.params.productId;
   // Todo: get values below using one or multiple requisitions with productID as a
   // parameter.
-  const imageSrc = "https://picsum.photos/300/"
+  const imageSrc = "https://picsum.photos/id/2/300/"
   const name = "Test"
   const price = "99,99"
   const details = "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum alias pariatur sunt ex nihil veritatis, consequuntur at esse provident laborum. Sapiente ea ipsum velit obcaecati ad? Velit earum magnam quas?"
@@ -50,10 +50,7 @@ export function ProductPage({route, navigation}: ProductPageProps) {
               <Text>distancia: {distance}</Text>
             </View>
           </View>
-          {/* Botão de adicionar */}
-          <View style={styles.buttonWrapper}>
-            <BigButton text="Adicionar ao pedido" />
-          </View>
+          {/* TODO:(Level 2) Botão de pedir*/}
         </View>
         <View style={styles.moreItems}>
           <View style={styles.hr} />
