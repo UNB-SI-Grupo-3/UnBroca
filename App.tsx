@@ -3,12 +3,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
-import {
-  CustomNavigationHeader,
-  DemoPage,
-  MainShopperPage,
-  ProductPage,
-} from "./pages";
+import { DemoPage, MainShopperPage, ProductPage } from "./pages";
+import { CustomNavigationHeader } from "./ui/components";
 
 import { ColorPalette } from "./constants";
 
