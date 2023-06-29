@@ -1,4 +1,5 @@
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Button, Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import { test } from "../../infra/endpoints/addProduct";
 import { Header, Price } from "../../ui";
 
 interface ProductPageProps {
@@ -32,6 +33,9 @@ export function ProductPage({ route, navigation }: ProductPageProps) {
             <Price>R$ {price}</Price>
           </View>
           {/* Detalhes */}
+        <View>
+          <Button title="teste" onPress={test}></Button>
+        </View>
           <View style={styles.details}>
             <View>
               <Text style={styles.h2}>Detalhes da marmita</Text>
@@ -56,6 +60,8 @@ export function ProductPage({ route, navigation }: ProductPageProps) {
           <Text style={{ textAlign: "right" }}>Mais items do vendedor</Text>
           {/* TODO: Inserir CardsScroll aqui. */}
         </View>
+
+
       </ScrollView>
     </View>
   );
