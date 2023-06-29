@@ -1,9 +1,10 @@
 import Product from "../models/product";
+import { backendUrl } from "../../constants";
 
 export async function addproduct(product: Product){
     try {
         const response = await fetch(
-            'https://sa-east-1.aws.data.mongodb-api.com/app/data-shxfr/endpoint/addproduct',{
+            `${backendUrl}/addproduct`,{
                 method: 'POST',
                 headers: {
                   Accept: 'application/json',

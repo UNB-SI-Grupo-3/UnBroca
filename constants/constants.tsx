@@ -9,3 +9,5 @@ export const ColorPalette = {
   Gray1       : "#eeeeee",
   Gray2       : "#8A8D96",
 };
+
+export const backendUrl = "https://sa-east-1.aws.data.mongodb-api.com/app/data-shxfr/endpoint"

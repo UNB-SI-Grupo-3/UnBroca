@@ -1,7 +1,9 @@
+import { backendUrl } from "../../constants";
+
 export const getAllProducts = async () => {
     try {
         const response = await fetch(
-            'https://sa-east-1.aws.data.mongodb-api.com/app/data-shxfr/endpoint/products',
+            `${backendUrl}/products`,
         );
 
         const json = await response.json();
