@@ -1,6 +1,6 @@
 import Product from "../models/product";
 
-export async function getProduct(product: Product){
+export async function addproduct(product: Product){
     try {
         const response = await fetch(
             'https://sa-east-1.aws.data.mongodb-api.com/app/data-shxfr/endpoint/addproduct',{
@@ -21,7 +21,7 @@ export async function getProduct(product: Product){
 };
 
 export async function test() {
-    const result = await getProduct({
+    const result = await addproduct({
         "_id": "649ba76f3002531d4bf6f27g",
         "address": "UnB",
         "creator": "649ba8b33002531d4bf6f26e",
