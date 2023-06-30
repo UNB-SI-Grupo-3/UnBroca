@@ -1,3 +1,4 @@
+import React from 'react';
 import { ReactNode } from "react";
 import { StyleProp, StyleSheet, Text, TextStyle } from "react-native";
 

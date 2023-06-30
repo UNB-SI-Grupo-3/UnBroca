@@ -1,3 +1,4 @@
+import React from 'react';
 import { Button, Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import { test } from "../../infra/endpoints/addProduct";
 import { Header, Price } from "../../ui";

@@ -4,14 +4,14 @@ import { GestureResponderEvent } from "react-native/types";
 import { ColorPalette } from "../../constants";
 
 export interface BigButtonProps {
-  text: String;
+  text: string;
   onPress?: null | ((event: GestureResponderEvent) => void) | undefined;
   disabled?: true | boolean;
   style?: StyleProp<ViewStyle>
 }
 
 export function BigButton({ text, onPress, style, disabled }: BigButtonProps) {
-  let buttonColorDecider = (disabled: boolean | undefined, pressed: boolean) => {
+  const buttonColorDecider = (disabled: boolean | undefined, pressed: boolean) => {
     if(disabled) return ColorPalette.Gray2
     else return pressed ?  ColorPalette.PrimaryFaded : ColorPalette.Primary
   }

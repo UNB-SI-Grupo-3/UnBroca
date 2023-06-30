@@ -1,3 +1,4 @@
+import React from 'react';
 import { FlatList, Text, StyleSheet, StyleProp, ViewStyle } from "react-native";
 import { Card } from "./Card";
 import { ColorPalette } from "../../constants";
