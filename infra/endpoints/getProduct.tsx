@@ -3,7 +3,7 @@ import { backendUrl } from "../../constants";
 export async function getProduct(id: string){
     try {
         const response = await fetch(
-            `${backendUrl}/product?id='+id`,
+            `${backendUrl}/product?id=${id}`,
         );
 
         const json = await response.json();
