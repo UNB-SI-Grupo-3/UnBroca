@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { ScrollView, View } from "react-native";
 import { BigButton, Header, StyledTextInput } from "../../ui";
 
 interface RegisterProps {
@@ -8,9 +8,10 @@ interface RegisterProps {
 }
 
 export function Register({ navigation }: RegisterProps) {
-  const [Nome, setNome] = useState("Click me!");
-  const [Email, setEmail] = useState("Click me!");
-  const [Telefone, setTelefone] = useState("Click me!");
+  const [Nome,     setNome    ] = useState<string>();
+  const [Email,    setEmail   ] = useState<string>();
+  const [Telefone, setTelefone] = useState<string>();
+  const [Senha,    setSenha   ] = useState<string>();
 
   const goToMainShopperPage = () => {
     navigation.navigate("main");
@@ -20,7 +21,10 @@ export function Register({ navigation }: RegisterProps) {
     <ScrollView style={{ flex: 0.5 }}>
       <Header>CADASTRO DE USUÁRIO</Header>
 
-      <StyledTextInput title="Nome" placeholder="Informe seu nome completo" />
+      <StyledTextInput 
+        title="Nome" 
+        placeholder="Informe seu nome completo" 
+      />
       <StyledTextInput
         title="E-mail"
         placeholder="Informe seu endereço de e-mail"
@@ -29,15 +33,14 @@ export function Register({ navigation }: RegisterProps) {
         title="Telefone"
         placeholder="Informe seu telefone com DDD"
       />
+      <StyledTextInput
+        title="Senha"
+        placeholder="Escolha uma senha"
+      />
       <View style={{ flexDirection: "row" }}>
         <BigButton
           style={{ flex: 1 }}
-          text="SEREI CLIENTE"
-          onPress={goToMainShopperPage}
-        />
-        <BigButton
-          style={{ flex: 1 }}
-          text="SOU VENDEDOR"
+          text="Criar conta!"
           onPress={goToMainShopperPage}
         />
       </View>

@@ -32,7 +32,7 @@ export function MainNavigationComponent() {
         <Stack.Screen
           name="Register"
           component={Register}
-          options={{ headerTitle: "Register" }}
+          options={{ headerTitle: "Tela de registro" }}
         />
         <Stack.Screen
           name="main"
