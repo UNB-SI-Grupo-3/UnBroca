@@ -3,50 +3,43 @@ import { useState } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { BigButton, Header, StyledTextInput } from "../../ui";
 
-interface RegisterProps {
+interface LoginPageProps {
   navigation: any;
 }
 
-export function Register({ navigation }: RegisterProps) {
-  const [Nome, setNome] = useState("Click me!");
+export function Login({ navigation }: LoginPageProps) {
   const [Email, setEmail] = useState("Click me!");
-  const [Telefone, setTelefone] = useState("Click me!");
+  const [Senha, setPassword] = useState("Click me!");
 
   const goToMainShopperPage = () => {
     navigation.navigate("main");
   };
 
-  const goToLoginPage = () => {
-    navigation.navigate("Login");
+  const goToRegisterPage = () => {
+    navigation.navigate("Register");
   };
 
   return (
     <ScrollView style={{ flex: 0.5 }}>
-      <Header>CADASTRO DE USUÁRIO</Header>
-
-      <StyledTextInput title="Nome" placeholder="Informe seu nome completo" />
+      <Header>LOGIN DE USUÁRIO</Header>
       <StyledTextInput
         title="E-mail"
-        placeholder="Informe seu endereço de e-mail"
-      />
-      <StyledTextInput
-        title="Telefone"
-        placeholder="Informe seu telefone com DDD"
+        placeholder="Digite o e-mail"
       />
       <StyledTextInput
         title="Senha"
-        placeholder="Informe sua senha"
+        placeholder="Digite a senha"
       />
       <View style={{ flexDirection: "row" }}>
         <BigButton
           style={{ flex: 1 }}
-          text="SEREI CLIENTE"
-          onPress={goToLoginPage}
+          text="ENTRAR"
+          onPress={goToMainShopperPage}
         />
         <BigButton
           style={{ flex: 1 }}
-          text="SOU VENDEDOR"
-          onPress={goToLoginPage}
+          text="CADASTRAR"
+          onPress={goToRegisterPage}
         />
       </View>
     </ScrollView>
