@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Image,
   Pressable,
@@ -9,39 +9,42 @@ import {
   ViewStyle,
 } from "react-native";
 import { ColorPalette } from "../../constants";
+import Product from "../../infra/models/product";
 
 export interface CardProps {
-  productID: string;
+  product: Product;
   navigation: any;
   style?: StyleProp<ViewStyle>;
 }
 
-export function Card({ productID, navigation, style }: CardProps) {
-  // TODO: get the values below using a request with productID as a parameter.
-  const imageSrc = "https://picsum.photos/300/";
-  const name = "Test";
-  const price = "99,99";
-  const distance = "80 m";
-
+export function Card({ product, navigation, style }: CardProps) {
   return (
     <Pressable
       style={[styles.card, style]}
       onPress={() => {
-        navigation.navigate("productPage", { productId: { productID } });
+        navigation.navigate("productPage", { productDetails: product });
       }}
     >
       <View style={styles.whiteBoard}></View>
 
-      <Image source={{ uri: imageSrc }} style={styles.cardImage} />
+      <Image
+        source={{
+          uri:
+            product.imageSrc === ""
+              ? "https://picsum.photos/200"
+              : product.imageSrc,
+        }}
+        style={styles.cardImage}
+      />
 
       <Text style={[{ flex: 1.5, overflow: "hidden" }, styles.text]}>
-        {name}
+        {product.name}
       </Text>
       <Text style={[{ color: ColorPalette.Gray2, flex: 1 }, styles.text]}>
-        {"A " + distance}
+        {"A " + product.address}
       </Text>
       <Text style={[{ color: ColorPalette.Primary, flex: 1 }, styles.text]}>
-        {"R$ " + price}
+        {"R$ " + product.price}
       </Text>
     </Pressable>
   );

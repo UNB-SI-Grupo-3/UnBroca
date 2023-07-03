@@ -2,17 +2,18 @@ import React from 'react';
 import { FlatList, Text, StyleSheet, StyleProp, ViewStyle } from "react-native";
 import { Card } from "./Card";
 import { ColorPalette } from "../../constants";
+import Product from '../../infra/models/product';
 
 interface Props {
   navigation: any;
-  productsIDlist?: {productID: string}[];
+  productsIDlist?: Product[];
   style?: StyleProp<ViewStyle>;
 }
 
-const renderer = (item: {productID: string}, index: number, navigation: any) => {
+const renderer = (item: Product, index: number, navigation: any) => {
   return (
       <Card
-        productID  = {item.productID}
+        product = {item}
         navigation = {navigation}
         style = {{ 
           flex:1/2, 
