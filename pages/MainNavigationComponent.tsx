@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { CustomNavigationHeader } from "../ui/components";
 import { Register } from "./Register/Register";
+import { Login } from "./Login/Login";
 import { DemoPage } from "./DemoPage/DemoPage";
 import { MainShopperPage } from "./MainShopperPage/MainShopperPage";
 import { ProductPage } from "./ProductPage/ProductPage";
@@ -14,7 +15,7 @@ export function MainNavigationComponent() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Register"
+        initialRouteName="Login"
         screenOptions={{
           header: ({ navigation, route, options, back }) => {
             const title = getHeaderTitle(options, route.name);
@@ -33,6 +34,11 @@ export function MainNavigationComponent() {
           name="Register"
           component={Register}
           options={{ headerTitle: "Tela de registro" }}
+        />
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{ headerTitle: "Login" }}
         />
         <Stack.Screen
           name="main"

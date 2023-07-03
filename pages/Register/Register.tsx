@@ -17,6 +17,10 @@ export function Register({ navigation }: RegisterProps) {
     navigation.navigate("main");
   };
 
+  const goToLoginPage = () => {
+    navigation.navigate("Login");
+  };
+
   return (
     <ScrollView style={{ flex: 0.5 }}>
       <Header>CADASTRO DE USUÁRIO</Header>
@@ -35,13 +39,18 @@ export function Register({ navigation }: RegisterProps) {
       />
       <StyledTextInput
         title="Senha"
-        placeholder="Escolha uma senha"
+        placeholder="Informe sua senha"
       />
       <View style={{ flexDirection: "row" }}>
         <BigButton
           style={{ flex: 1 }}
-          text="Criar conta!"
-          onPress={goToMainShopperPage}
+          text="SEREI CLIENTE"
+          onPress={goToLoginPage}
+        />
+        <BigButton
+          style={{ flex: 1 }}
+          text="SOU VENDEDOR"
+          onPress={goToLoginPage}
         />
       </View>
     </ScrollView>
