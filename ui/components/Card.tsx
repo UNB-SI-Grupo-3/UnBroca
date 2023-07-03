@@ -35,7 +35,7 @@ export function Card({ productID, navigation, style }: CardProps) {
       <Image source={{ uri: imageSrc }} style={styles.cardImage} />
 
       <Text style={[{ flex: 1.5, overflow: "hidden" }, styles.text]}>
-        {name}
+        {productID}
       </Text>
       <Text style={[{ color: ColorPalette.Gray2, flex: 1 }, styles.text]}>
         {"A " + distance}

@@ -1,6 +1,8 @@
 import React from 'react';
-import { useState } from "react";
-import { Pressable, StyleSheet, View } from "react-native";
+import { useState, useEffect } from "react";
+import { Pressable, StyleSheet, View, Text } from "react-native";
+import { getAllProducts } from '../../infra/endpoints/getAllProducts';
+import Product from '../../infra/models/product';
 import { CardsScroll, Header, SearchBox } from "../../ui/";
 
 interface MainShopperPageProps {
@@ -8,15 +10,26 @@ interface MainShopperPageProps {
 }
 
 export function MainShopperPage({ navigation }: MainShopperPageProps) {
-  // TODO: Get id list of available products using a request and remove
-  // the block of code below.
-  const dummyCards = Array.from({ length: 30 }).map((_, i) => {
-    return {
-      productID: `${i}`,
-    };
-  });
+  const [filter,   setFilter]   = useState("");
+  const [loading,  setLoading]  = useState(true)
+  const [products, setProducts] = useState<{ productID: string }[]>([])
 
-  const [filter, setFilter] = useState("");
+  useEffect(() => {
+    let cancel = false;
+    getAllProducts().then((data) => {
+      if (!cancel) {
+        const temp:{ productID: string }[]= [];
+        data.forEach((product) => {
+          temp.push({productID: product._id})
+        })
+        setProducts(temp);
+        setLoading(false)
+      }
+    })
+    return () => {
+      cancel = true;
+    };
+  }, [])
 
   return (
     <View style={styles.container}>
@@ -24,7 +37,10 @@ export function MainShopperPage({ navigation }: MainShopperPageProps) {
         <Header>Escolha sua próxima broca</Header>
       </Pressable>
       <SearchBox inputProps={{ onChangeText: setFilter }} />
-      <CardsScroll navigation={navigation} productsIDlist={dummyCards} />
+      {loading 
+        ? <Text>Carregando...</Text> 
+        : <CardsScroll navigation={navigation} productsIDlist={products} />
+      }
     </View>
   );
 }

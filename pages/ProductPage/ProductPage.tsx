@@ -8,7 +8,8 @@ interface ProductPageProps {
 }
 
 export function ProductPage({ route, navigation }: ProductPageProps) {
-  const productId = route.params.productId;
+  const { productId } = route.params;
+  console.log("AAAAAAAAAAAAAA: " + productId)
   // Todo: get values below using one or multiple requisitions with productID as a
   // parameter.
   const imageSrc = "https://picsum.photos/id/2/300/";
@@ -36,6 +37,7 @@ export function ProductPage({ route, navigation }: ProductPageProps) {
           <View style={styles.details}>
             <View>
               <Text style={styles.h2}>Detalhes da marmita</Text>
+              <Text>{productId}</Text>
               <Text>{details}</Text>
             </View>
             <View>
