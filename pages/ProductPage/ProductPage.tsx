@@ -37,7 +37,9 @@ export function ProductPage({ route, navigation }: ProductPageProps) {
             </View>
             <View>
               <Text style={styles.h2}>Vendedor</Text>
+              {/* TODO: Adicionar estrelas */}
               <Text>qtd Estrelas: {product.stars}</Text>
+              {/* TODO: Adicionar request com o nome do vendedor */}
               <Text>nome: {product.creator}</Text>
               <Text>telefone: {product.telephone}</Text>
             </View>
