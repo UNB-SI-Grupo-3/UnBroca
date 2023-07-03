@@ -12,17 +12,13 @@ interface MainShopperPageProps {
 export function MainShopperPage({ navigation }: MainShopperPageProps) {
   const [filter,   setFilter]   = useState("");
   const [loading,  setLoading]  = useState(true)
-  const [products, setProducts] = useState<{ productID: string }[]>([])
+  const [products, setProducts] = useState<Product[]>([])
 
   useEffect(() => {
     let cancel = false;
     getAllProducts().then((data) => {
       if (!cancel) {
-        const temp:{ productID: string }[]= [];
-        data.forEach((product) => {
-          temp.push({productID: product._id})
-        })
-        setProducts(temp);
+        setProducts(data);
         setLoading(false)
       }
     })

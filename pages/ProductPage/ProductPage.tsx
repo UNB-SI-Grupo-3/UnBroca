@@ -1,6 +1,7 @@
-import React from 'react';
+import React from "react";
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
-import { Header, Price } from "../../ui";
+import Product from "../../infra/models/product";
+import { BigButton, Header, Price } from "../../ui";
 
 interface ProductPageProps {
   route: any;
@@ -8,20 +9,7 @@ interface ProductPageProps {
 }
 
 export function ProductPage({ route, navigation }: ProductPageProps) {
-  const { productId } = route.params;
-  console.log("AAAAAAAAAAAAAA: " + productId)
-  // Todo: get values below using one or multiple requisitions with productID as a
-  // parameter.
-  const imageSrc = "https://picsum.photos/id/2/300/";
-  const name = "Test";
-  const price = "99,99";
-  const details =
-    "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum alias pariatur sunt ex nihil veritatis, consequuntur at esse provident laborum. Sapiente ea ipsum velit obcaecati ad? Velit earum magnam quas?";
-  const sellerName = "Eduardo Silva";
-  const stars = "5/5";
-  const telephone = "61 9999-9999";
-  const address = "UNB";
-  const distance = "80 m";
+  const product:Product = route.params.productDetails;
 
   return (
     <View>
@@ -29,27 +17,34 @@ export function ProductPage({ route, navigation }: ProductPageProps) {
         <View style={styles.productView}>
           {/* Imagem e preço */}
           <View style={styles.imageAndPrice}>
-            <Image source={{ uri: imageSrc }} style={styles.image} />
-            <Header>{name}</Header>
-            <Price>R$ {price}</Price>
+            <Image
+              source={{
+                uri:
+                  product.imageSrc === ""
+                    ? "https://picsum.photos/200"
+                    : product.imageSrc,
+              }}
+              style={styles.image}
+            />
+            <Header>{product.name}</Header>
+            <Price>R$ {product.price}</Price>
           </View>
           {/* Detalhes */}
           <View style={styles.details}>
             <View>
               <Text style={styles.h2}>Detalhes da marmita</Text>
-              <Text>{productId}</Text>
-              <Text>{details}</Text>
+              <Text>{product.details}</Text>
             </View>
             <View>
               <Text style={styles.h2}>Vendedor</Text>
-              <Text>qtd Estrelas: {stars}</Text>
-              <Text>nome: {sellerName}</Text>
-              <Text>telefone: {telephone}</Text>
+              <Text>qtd Estrelas: {product.stars}</Text>
+              <Text>nome: {product.creator}</Text>
+              <Text>telefone: {product.telephone}</Text>
             </View>
             <View>
               <Text style={styles.h2}>Localização</Text>
-              <Text>endereco: {address}</Text>
-              <Text>distancia: {distance}</Text>
+              <Text>endereco: {product.address}</Text>
+              <Text>distancia: {product.distance}</Text>
             </View>
           </View>
           {/* TODO:(Level 2) Botão de pedir*/}
@@ -58,9 +53,8 @@ export function ProductPage({ route, navigation }: ProductPageProps) {
           <View style={styles.hr} />
           <Text style={{ textAlign: "right" }}>Mais items do vendedor</Text>
           {/* TODO: Inserir CardsScroll aqui. */}
+          <BigButton text="Voltar" style={{flex:1}} onPress={() => navigation.goBack()}/>
         </View>
-
-
       </ScrollView>
     </View>
   );
