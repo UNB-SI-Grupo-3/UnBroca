@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { ScrollView, StyleSheet, Text, View, Image } from "react-native";
+import { ScrollView, StyleSheet, View, Image } from "react-native";
 import { ColorPalette } from "../../constants/constants";
 import { RegisterForm } from "../../ui/components/RegisterForm";
 import { LoginForm } from "../../ui/components/LoginForm";
@@ -34,11 +34,13 @@ export function Login({ navigation }: LoginPageProps) {
           <Tab.Item>Cadastro</Tab.Item>
         </Tab>
       </View>
-      {index === 0 ? (
-        <LoginForm navigation={navigation} />
-      ) : (
-        <RegisterForm navigation={navigation} setRenderLogin={renderLogin} />
-      )}
+      <View style={{ paddingHorizontal: 30 }}>
+        {index === 0 ? (
+          <LoginForm navigation={navigation} />
+        ) : (
+          <RegisterForm navigation={navigation} setRenderLogin={renderLogin} />
+        )}
+      </View>
     </ScrollView>
   );
 }

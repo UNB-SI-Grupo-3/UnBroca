@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 import { ColorPalette } from "../../constants";
 import { StyledTextInput } from "../forms";
 import { BigButton } from "../buttons";
@@ -9,15 +9,15 @@ interface LoginFormProps {
 }
 
 export function LoginForm({ navigation }: LoginFormProps) {
-  const [Email, setEmail] = useState("Click me!");
-  const [Senha, setPassword] = useState("Click me!");
+  const [Email, setEmail] = useState<string>();
+  const [Senha, setPassword] = useState<string>();
 
   const goToMainShopperPage = () => {
     navigation.navigate("main");
   };
 
   return (
-    <View>
+    <ScrollView style={{gap: 10}}>
       <StyledTextInput
         textStyle={styles.labelText}
         title="Endereço"
@@ -36,7 +36,7 @@ export function LoginForm({ navigation }: LoginFormProps) {
           onPress={goToMainShopperPage}
         />
       </View>
-    </View>
+    </ScrollView>
   );
 }
 

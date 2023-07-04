@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, ScrollView, View } from "react-native";
 import { ColorPalette } from "../../constants";
 import { StyledTextInput } from "../forms";
 import { BigButton } from "../buttons";
@@ -19,7 +19,7 @@ export function RegisterForm({
   const [Senha, setSenha] = useState<string>();
 
   return (
-    <View>
+    <ScrollView style={{ gap: 10 }}>
       <StyledTextInput
         textStyle={styles.labelText}
         title="Nome"
@@ -59,7 +59,7 @@ export function RegisterForm({
           onPress={() => setRenderLogin(true)}
         />
       </View>
-    </View>
+    </ScrollView>
   );
 }
 

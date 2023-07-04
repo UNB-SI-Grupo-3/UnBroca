@@ -32,12 +32,12 @@ export function MainNavigationComponent() {
         <Stack.Screen
           name="Login"
           component={Login}
-          options={{ headerTitle: "" }}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="main"
           component={MainShopperPage}
-          options={{ headerShown: false }}
+          options={{ headerTitle: "Página inicial" }}
         />
         <Stack.Screen
           name="demo"
