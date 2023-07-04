@@ -3,7 +3,6 @@ import { getHeaderTitle } from "@react-navigation/elements";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { CustomNavigationHeader } from "../ui/components";
-import { Register } from "./Register/Register";
 import { Login } from "./Login/Login";
 import { DemoPage } from "./DemoPage/DemoPage";
 import { MainShopperPage } from "./MainShopperPage/MainShopperPage";
@@ -31,14 +30,9 @@ export function MainNavigationComponent() {
         }}
       >
         <Stack.Screen
-          name="Register"
-          component={Register}
-          options={{ headerTitle: "Tela de registro" }}
-        />
-        <Stack.Screen
           name="Login"
           component={Login}
-          options={{ headerTitle: "Login" }}
+          options={{ headerTitle: "" }}
         />
         <Stack.Screen
           name="main"
