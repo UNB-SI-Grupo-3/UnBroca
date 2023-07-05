@@ -7,6 +7,8 @@ import { Login } from "./Login/Login";
 import { DemoPage } from "./DemoPage/DemoPage";
 import { MainShopperPage } from "./MainShopperPage/MainShopperPage";
 import { ProductPage } from "./ProductPage/ProductPage";
+import { EntryScreen } from "./EntryScreen/EntryScreen";
+import { MainSellerPage } from "./MainSellerPage/MainSellerPage";
 import { ProductFormPage } from "./ProductFormPage/ProductFormPage";
 
 const Stack = createNativeStackNavigator();
@@ -15,7 +17,7 @@ export function MainNavigationComponent() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Login"
+        initialRouteName="entryScreen"
         screenOptions={{
           header: ({ navigation, route, options, back }) => {
             const title = getHeaderTitle(options, route.name);
@@ -31,14 +33,19 @@ export function MainNavigationComponent() {
         }}
       >
         <Stack.Screen
+          name="entryScreen"
+          component={EntryScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
           name="Login"
           component={Login}
-          options={{ headerTitle: "" }}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="main"
           component={MainShopperPage}
-          options={{ headerShown: false }}
+          options={{ headerTitle: "Página inicial", headerBackTitle: "sair" }}
         />
         <Stack.Screen
           name="demo"
@@ -49,6 +56,11 @@ export function MainNavigationComponent() {
           name="productPage"
           component={ProductPage}
           options={{ headerTitle: "Página da marmita" }}
+        />
+        <Stack.Screen
+          name="mainSellerPage"
+          component={MainSellerPage}
+          options={{ headerTitle: "Página inicial", headerBackTitle: "sair" }}
         />
         <Stack.Screen
           name="ProductFormPage"
