@@ -8,6 +8,7 @@ import { DemoPage } from "./DemoPage/DemoPage";
 import { MainShopperPage } from "./MainShopperPage/MainShopperPage";
 import { ProductPage } from "./ProductPage/ProductPage";
 import { EntryScreen } from "./EntryScreen/EntryScreen";
+import { MainSellerPage } from "./MainSellerPage/MainSellerPage";
 
 const Stack = createNativeStackNavigator();
 
@@ -43,7 +44,7 @@ export function MainNavigationComponent() {
         <Stack.Screen
           name="main"
           component={MainShopperPage}
-          options={{ headerTitle: "Página inicial", headerBackTitle: "voltar" }}
+          options={{ headerTitle: "Página inicial", headerBackTitle: "sair" }}
         />
         <Stack.Screen
           name="demo"
@@ -54,6 +55,11 @@ export function MainNavigationComponent() {
           name="productPage"
           component={ProductPage}
           options={{ headerTitle: "Página da marmita" }}
+        />
+        <Stack.Screen
+          name="mainSellerPage"
+          component={MainSellerPage}
+          options={{ headerTitle: "Página inicial", headerBackTitle: "sair" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
