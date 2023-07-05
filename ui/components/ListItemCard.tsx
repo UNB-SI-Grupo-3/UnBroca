@@ -49,6 +49,8 @@ export function ListItemCard({
               navigation.navigate("productPage", { productDetails: product });
             }}
           />
+          {/* TODO: navigate to a more appropriate product page for sellers on the line above. */}
+          {/* TODO: create the said appropriate product page for sellers */}
         </View>
       </View>
     </View>
