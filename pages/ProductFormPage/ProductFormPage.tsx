@@ -19,6 +19,8 @@ interface ProductFormPageProps {
   navigation: any;
 }
 
+// TODO: add more forms that written with the component below. Also add some 
+// checks to the inputs.  
 export function ProductFormPage({ navigation }: ProductFormPageProps) {
   const addProduto = async () => {
     console.log('Criando produto...');
@@ -112,6 +114,7 @@ export function ProductFormPage({ navigation }: ProductFormPageProps) {
           </View>
         </View>
         <TouchableOpacity onPress={pickImage}>
+          {/* TODO: Fix "source uri should not be an empty string" from the line below */}
           <Image source={{ uri: img }} style={styles.circle} />
         </TouchableOpacity>
       </View>
