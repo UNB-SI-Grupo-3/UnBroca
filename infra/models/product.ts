@@ -1,15 +1,15 @@
 interface Product {
-  _id: string;
-  imageSrc: string;
-  name: string;
-  price: string;
-  details: string;
-  creator: string;
-  stars: string;
-  telephone: string;
-  address: string;
-  distance: string;
-  quantity: string;
+  _id: string | undefined;
+  imageSrc: string | undefined;
+  name: string | undefined;
+  price: string | undefined;
+  details: string | undefined;
+  creator: string | undefined;
+  stars: string | undefined;
+  telephone: string | undefined;
+  address: string | undefined;
+  distance: string | undefined;
+  quantity: string | undefined;
 }
 
 export default Product;

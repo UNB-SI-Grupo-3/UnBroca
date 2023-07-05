@@ -23,6 +23,8 @@ export function Login({ navigation, route }: LoginPageProps) {
     setSelected(typeSelected)
   };
 
+  const goToProductFormPage = () => navigation.navigate("ProductFormPage");
+
   return (
     <ScrollView style={{ flex: 0.5 }}>
       <View style={styles.mainView}>

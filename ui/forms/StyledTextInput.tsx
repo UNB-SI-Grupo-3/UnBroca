@@ -16,6 +16,8 @@ interface StyledTextInputProps {
   style?: StyleProp<ViewStyle>;
   textStyle?: StyleProp<TextStyle>;
   inputProps?: TextInputProps;
+  value?: string;
+  onChangeText?: any;
 }
 
 export function StyledTextInput({
@@ -23,6 +25,8 @@ export function StyledTextInput({
   placeholder,
   style,
   inputProps,
+  value,
+  onChangeText,
   textStyle
 }: StyledTextInputProps) {
   return (
@@ -31,6 +35,8 @@ export function StyledTextInput({
       <TextInput
         style={styles.textInput}
         placeholder={placeholder}
+        value={value}
+        onChangeText={onChangeText}
         {...inputProps}
       />
       <View style={styles.hr} />
