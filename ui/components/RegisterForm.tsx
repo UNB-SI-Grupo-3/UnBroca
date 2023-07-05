@@ -6,17 +6,17 @@ import { BigButton } from "../buttons";
 
 interface RegisterFormProps {
   navigation: any;
-  setRenderLogin: any;
+  setRenderLogin: (type:string) => void;
 }
 
 export function RegisterForm({
   navigation,
   setRenderLogin,
 }: RegisterFormProps) {
-  const [Nome, setNome] = useState<string>();
-  const [Email, setEmail] = useState<string>();
+  const [Nome,     setNome    ] = useState<string>();
+  const [Email,    setEmail   ] = useState<string>();
   const [Telefone, setTelefone] = useState<string>();
-  const [Senha, setSenha] = useState<string>();
+  const [Senha,    setSenha   ] = useState<string>();
 
   return (
     <ScrollView style={{ gap: 10 }}>
@@ -51,12 +51,12 @@ export function RegisterForm({
         <BigButton
           style={{ flex: 1 }}
           text="SEREI CLIENTE"
-          onPress={() => setRenderLogin(true)}
+          onPress={() => setRenderLogin("cliente")}
         />
         <BigButton
           style={{ flex: 1 }}
-          text="SOU VENDEDOR"
-          onPress={() => setRenderLogin(true)}
+          text="SEREI VENDEDOR"
+          onPress={() => setRenderLogin("vendedor")}
         />
       </View>
     </ScrollView>

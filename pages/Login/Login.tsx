@@ -11,12 +11,14 @@ interface LoginPageProps {
 }
 
 export function Login({ navigation }: LoginPageProps) {
-  const [Email, setEmail] = useState("Click me!");
-  const [Senha, setPassword] = useState("Click me!");
-  const [index, setIndex] = React.useState(0);
+  const [Email,    setEmail   ] = useState("");
+  const [Senha,    setPassword] = useState("");
+  const [index,    setIndex   ] = useState(0);
+  const [selected, setSelected] = useState("vendedor")
 
-  const renderLogin = () => {
+  const renderLogin = (typeSelected:string) => {
     setIndex(0);
+    setSelected(typeSelected)
   };
 
   return (
@@ -36,7 +38,7 @@ export function Login({ navigation }: LoginPageProps) {
       </View>
       <View style={{ paddingHorizontal: 30 }}>
         {index === 0 ? (
-          <LoginForm navigation={navigation} />
+          <LoginForm navigation={navigation} clientType={selected}/>
         ) : (
           <RegisterForm navigation={navigation} setRenderLogin={renderLogin} />
         )}
@@ -58,7 +60,8 @@ const styles = StyleSheet.create({
   },
   mainView: {
     backgroundColor: "white",
-    borderRadius: 30,
+    borderBottomRightRadius: 30,
+    borderBottomLeftRadius: 30,
     alignItems: "center",
     width: "100%",
     gap: 132,

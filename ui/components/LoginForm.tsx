@@ -5,16 +5,21 @@ import { StyledTextInput } from "../forms";
 import { BigButton } from "../buttons";
 
 interface LoginFormProps {
+  clientType: string;
   navigation: any;
 }
 
-export function LoginForm({ navigation }: LoginFormProps) {
-  const [Email, setEmail] = useState<string>();
+export function LoginForm({ clientType, navigation }: LoginFormProps) {
+  const [Email, setEmail   ] = useState<string>();
   const [Senha, setPassword] = useState<string>();
 
   const goToMainShopperPage = () => {
     navigation.navigate("main");
   };
+
+  const goToMainSellerPage = () => {
+    navigation.navigate("mainSellerPage");
+  }
 
   return (
     <ScrollView style={{gap: 10}}>
@@ -33,7 +38,7 @@ export function LoginForm({ navigation }: LoginFormProps) {
         <BigButton
           style={{ flex: 1 }}
           text="ENTRAR"
-          onPress={goToMainShopperPage}
+          onPress={clientType === "cliente" ? goToMainShopperPage : goToMainSellerPage}
         />
       </View>
     </ScrollView>

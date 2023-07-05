@@ -37,7 +37,7 @@ export function MainNavigationComponent() {
         <Stack.Screen
           name="main"
           component={MainShopperPage}
-          options={{ headerTitle: "Página inicial" }}
+          options={{ headerTitle: "Página inicial", headerBackTitle: "voltar" }}
         />
         <Stack.Screen
           name="demo"
