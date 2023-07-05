@@ -7,6 +7,7 @@ import { Login } from "./Login/Login";
 import { DemoPage } from "./DemoPage/DemoPage";
 import { MainShopperPage } from "./MainShopperPage/MainShopperPage";
 import { ProductPage } from "./ProductPage/ProductPage";
+import { EntryScreen } from "./EntryScreen/EntryScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -14,7 +15,7 @@ export function MainNavigationComponent() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Login"
+        initialRouteName="entryScreen"
         screenOptions={{
           header: ({ navigation, route, options, back }) => {
             const title = getHeaderTitle(options, route.name);
@@ -29,6 +30,11 @@ export function MainNavigationComponent() {
           },
         }}
       >
+        <Stack.Screen
+          name="entryScreen"
+          component={EntryScreen}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="Login"
           component={Login}

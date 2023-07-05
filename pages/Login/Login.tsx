@@ -1,22 +1,24 @@
 import React from "react";
 import { useState } from "react";
-import { ScrollView, StyleSheet, View, Image } from "react-native";
+import { ScrollView, StyleSheet, View, Image, Pressable } from "react-native";
 import { ColorPalette } from "../../constants/constants";
 import { RegisterForm } from "../../ui/components/RegisterForm";
 import { LoginForm } from "../../ui/components/LoginForm";
 import { Tab } from "@rneui/themed";
+import { clientTypes } from "../../infra/models/user";
 
 interface LoginPageProps {
   navigation: any;
+  route:any
 }
 
-export function Login({ navigation }: LoginPageProps) {
+export function Login({ navigation, route }: LoginPageProps) {
   const [Email,    setEmail   ] = useState("");
   const [Senha,    setPassword] = useState("");
   const [index,    setIndex   ] = useState(0);
-  const [selected, setSelected] = useState("vendedor")
+  const [selected, setSelected] = useState<clientTypes>(route.params.selectedPage)
 
-  const renderLogin = (typeSelected:string) => {
+  const renderLogin = (typeSelected:clientTypes) => {
     setIndex(0);
     setSelected(typeSelected)
   };
@@ -24,7 +26,9 @@ export function Login({ navigation }: LoginPageProps) {
   return (
     <ScrollView style={{ flex: 0.5 }}>
       <View style={styles.mainView}>
-        <Image source={require("../../assets/logo.png")} />
+        <Pressable onPress={navigation.goBack}>
+          <Image source={require("../../assets/logo.png")} />
+        </Pressable>
         <Tab
           value={index}
           onChange={setIndex}

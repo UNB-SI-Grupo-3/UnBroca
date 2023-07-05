@@ -3,10 +3,11 @@ import { StyleSheet, ScrollView, View } from "react-native";
 import { ColorPalette } from "../../constants";
 import { StyledTextInput } from "../forms";
 import { BigButton } from "../buttons";
+import { clientTypes } from "../../infra/models/user";
 
 interface RegisterFormProps {
   navigation: any;
-  setRenderLogin: (type:string) => void;
+  setRenderLogin: (type:clientTypes) => void;
 }
 
 export function RegisterForm({
@@ -51,7 +52,7 @@ export function RegisterForm({
         <BigButton
           style={{ flex: 1 }}
           text="SEREI CLIENTE"
-          onPress={() => setRenderLogin("cliente")}
+          onPress={() => setRenderLogin("comprador")}
         />
         <BigButton
           style={{ flex: 1 }}

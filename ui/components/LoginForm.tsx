@@ -3,9 +3,10 @@ import { ScrollView, StyleSheet, View } from "react-native";
 import { ColorPalette } from "../../constants";
 import { StyledTextInput } from "../forms";
 import { BigButton } from "../buttons";
+import { clientTypes } from "../../infra/models/user";
 
 interface LoginFormProps {
-  clientType: string;
+  clientType: clientTypes;
   navigation: any;
 }
 
@@ -19,10 +20,10 @@ export function LoginForm({ clientType, navigation }: LoginFormProps) {
 
   const goToMainSellerPage = () => {
     navigation.navigate("mainSellerPage");
-  }
+  };
 
   return (
-    <ScrollView style={{gap: 10}}>
+    <ScrollView style={{ gap: 10 }}>
       <StyledTextInput
         textStyle={styles.labelText}
         title="Endereço"
@@ -37,8 +38,16 @@ export function LoginForm({ clientType, navigation }: LoginFormProps) {
       <View style={{ flexDirection: "row" }}>
         <BigButton
           style={{ flex: 1 }}
-          text="ENTRAR"
-          onPress={clientType === "cliente" ? goToMainShopperPage : goToMainSellerPage}
+          text= {
+            clientType === "comprador"
+              ? "Entrar"
+              : "Entrar como vendedor"
+          }
+          onPress={
+            clientType === "comprador"
+              ? goToMainShopperPage
+              : goToMainSellerPage
+          }
         />
       </View>
     </ScrollView>
