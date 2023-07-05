@@ -19,6 +19,8 @@ export function Login({ navigation }: LoginPageProps) {
     navigation.navigate("Register");
   };
 
+  const goToProductFormPage = () => navigation.navigate("ProductFormPage");
+
   return (
     <ScrollView style={{ flex: 0.5 }}>
       <Header>LOGIN DE USUÁRIO</Header>
@@ -42,6 +44,10 @@ export function Login({ navigation }: LoginPageProps) {
           onPress={goToRegisterPage}
         />
       </View>
+      <BigButton
+        text='Go-to productformpage (DEBUG)'
+        onPress={goToProductFormPage}
+      />
     </ScrollView>
   );
 }

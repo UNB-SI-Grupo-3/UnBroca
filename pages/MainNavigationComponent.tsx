@@ -8,6 +8,7 @@ import { Login } from "./Login/Login";
 import { DemoPage } from "./DemoPage/DemoPage";
 import { MainShopperPage } from "./MainShopperPage/MainShopperPage";
 import { ProductPage } from "./ProductPage/ProductPage";
+import { ProductFormPage } from "./ProductFormPage/ProductFormPage";
 
 const Stack = createNativeStackNavigator();
 
@@ -54,6 +55,11 @@ export function MainNavigationComponent() {
           name="productPage"
           component={ProductPage}
           options={{ headerTitle: "Página da marmita" }}
+        />
+        <Stack.Screen
+          name="ProductFormPage"
+          component={ProductFormPage}
+          options={{ headerTitle: "Cadastro de Marmita" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

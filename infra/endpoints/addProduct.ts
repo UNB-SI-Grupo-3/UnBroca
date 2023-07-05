@@ -1,7 +1,7 @@
 import Product from "../models/product";
 import { backendUrl } from "../../constants";
 
-export async function addproduct(product: Product) {
+export async function addProduct(product: Product) {
   try {
     const response = await fetch(`${backendUrl}/addproduct`, {
       method: "POST",
@@ -21,7 +21,7 @@ export async function addproduct(product: Product) {
 }
 
 export async function test() {
-  const result = await addproduct({
+  const result = await addProduct({
     _id: "649ba76f3002531d4bf6f27g",
     address: "UnB",
     creator: "649ba8b33002531d4bf6f26e",
