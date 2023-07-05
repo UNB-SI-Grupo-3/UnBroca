@@ -7,12 +7,14 @@ import {
   TextInputProps,
   View,
   ViewStyle,
+  TextStyle
 } from "react-native";
 
 interface StyledTextInputProps {
   title: string;
   placeholder: string;
   style?: StyleProp<ViewStyle>;
+  textStyle?: StyleProp<TextStyle>;
   inputProps?: TextInputProps;
   value?: string;
   onChangeText?: any;
@@ -24,11 +26,12 @@ export function StyledTextInput({
   style,
   inputProps,
   value,
-  onChangeText
+  onChangeText,
+  textStyle
 }: StyledTextInputProps) {
   return (
     <View style={[styles.container, style]}>
-      <Text>{title}</Text>
+      <Text style={textStyle}>{title}</Text>
       <TextInput
         style={styles.textInput}
         placeholder={placeholder}
