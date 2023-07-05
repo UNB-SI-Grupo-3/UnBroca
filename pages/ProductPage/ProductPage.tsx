@@ -37,10 +37,7 @@ export function ProductPage({ route, navigation }: ProductPageProps) {
             </View>
             <View>
               <Text style={styles.h2}>Vendedor</Text>
-              {/* TODO: Adicionar estrelas */}
-              <Text>qtd Estrelas: {product.stars}</Text>
-              {/* TODO: Adicionar request com o nome do vendedor */}
-              <Text>nome: {product.creator}</Text>
+              <Text>nome: {product.creator} {"⭐".repeat(Number(product.stars))}</Text>
               <Text>telefone: {product.telephone}</Text>
             </View>
             <View>
@@ -52,10 +49,6 @@ export function ProductPage({ route, navigation }: ProductPageProps) {
           {/* TODO:(Level 2) Botão de pedir*/}
         </View>
         <View style={styles.moreItems}>
-          <View style={styles.hr} />
-          <Text style={{ textAlign: "right" }}>Mais items do vendedor</Text>
-          {/* TODO: Inserir CardsScroll aqui. */}
-          <BigButton text="Voltar" style={{flex:1}} onPress={() => navigation.goBack()}/>
         </View>
       </ScrollView>
     </View>
