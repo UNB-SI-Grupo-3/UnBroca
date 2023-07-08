@@ -10,7 +10,7 @@ interface MainSellerPageProps {
 }
 
 export function MainSellerPage({ navigation }: MainSellerPageProps) {
-  const [loading,  setLoading ] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
