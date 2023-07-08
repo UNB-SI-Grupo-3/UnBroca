@@ -39,4 +39,4 @@ Você pode escolher um dos dois abaixo (ou ambos)
 
 - Você pode abrir o menu de desenvolvimento sacudindo o celular, digitando `ctrl-m` no emulador, ou digitando `m` na CLI do expo. Neste menu você pode abrir inspetor de elementos, recarregar, debugar performance, etc...
 - Caso você queira limpar o cache do expo, inicie usando `npm run start -c`;
-- O expo necessita que você abra uma porta tcp no seu computador e que ambos celular e computador estejam na mesma lan e tenham acesso à internet. Isso não é possível em redes empresariais ou públicas como a da UNB e para desenvolver nessas redes é necessário usar tunelamento. Leia: https://docs.expo.dev/more/expo-cli/#tunneling.
+- O expo necessita que você abra uma porta tcp no seu computador e que ambos celular e computador estejam na mesma lan e tenham acesso à internet. Isso não é possível em redes empresariais ou públicas, como a da UNB, e para desenvolver nessas redes é necessário usar tunelamento. Leia: https://docs.expo.dev/more/expo-cli/#tunneling.
